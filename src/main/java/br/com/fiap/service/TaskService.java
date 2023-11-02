@@ -46,7 +46,7 @@ public class TaskService {
 
 			return taskesRepository.save(existingTaskes);
 		} else {
-			throw new EntityNotFoundException("Taskes not found with id: " + id);
+			throw new EntityNotFoundException("Task not found with id: " + id);
 		}
 	}
 }
