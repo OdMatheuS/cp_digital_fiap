@@ -27,4 +27,4 @@ Use as credenciais de usuário para fazer login na aplicação.
 A aplicação possui endpoints para gerenciamento de tarefas. Você pode usar o Swagger para explorar e testar esses endpoints. 
 Acesse a documentação Swagger em: [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 
-Caso queira utilizar o **Postman**, separei a collection utilizada nos testes e add neste repo.
+Caso queira utilizar o **Postman**, separei a collection utilizada nos testes e add neste repo
