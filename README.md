@@ -28,3 +28,5 @@ A aplicação possui endpoints para gerenciamento de tarefas. Você pode usar o 
 Acesse a documentação Swagger em: [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 
 Caso queira utilizar o **Postman**, separei a collection utilizada nos testes e add neste repo
+
+### Obs: existe uma outra branch nesse repo chamada <em>"basic_auth"</em> , onde fiz uma simples implementação utilizando Basic Auth.
