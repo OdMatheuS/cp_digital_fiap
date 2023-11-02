@@ -3,6 +3,7 @@ package br.com.fiap.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -16,8 +17,10 @@ public class WebSecurityConfig {
 
 	@Bean
 	SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-		http.csrf().disable().authorizeHttpRequests(r -> r.antMatchers("/").permitAll().anyRequest().authenticated())
-				.formLogin(f -> f.loginPage("/login").permitAll()).logout(l -> l.permitAll());
+		http.csrf().disable()
+				.authorizeHttpRequests(r -> r.antMatchers("/login").permitAll().anyRequest().authenticated())
+				.formLogin(f -> f.loginProcessingUrl("/login").permitAll()).logout(log -> log.permitAll())
+				.httpBasic(Customizer.withDefaults());
 		return http.build();
 	}
 
