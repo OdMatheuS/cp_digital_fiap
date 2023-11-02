@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.fiap.entity.Taskes;
+import br.com.fiap.entity.Tasks;
 import br.com.fiap.service.TaskService;
 
 @RestController
@@ -22,22 +22,22 @@ public class TaskController {
 	private TaskService taskService;
 
 	@GetMapping("/listar")
-	public List<Taskes> getAllTasks() {
+	public List<Tasks> getAllTasks() {
 		return taskService.getAllTaskes();
 	}
 
 	@GetMapping("/{id}")
-	public Optional<Taskes> getTask(@PathVariable Long id) {
+	public Optional<Tasks> getTask(@PathVariable Long id) {
 		return taskService.getTaskesById(id);
 	}
 
 	@PostMapping("/cadastrar")
-	public Taskes createTask(@RequestBody Taskes task) {
+	public Tasks createTask(@RequestBody Tasks task) {
 		return taskService.createTaskes(task);
 	}
 
 	@PutMapping("/{id}")
-	public Taskes updateTask(@PathVariable Long id, @RequestBody Taskes task) {
+	public Tasks updateTask(@PathVariable Long id, @RequestBody Tasks task) {
 		task.setId(id);
 		return taskService.updateTaskes(id, task);
 	}

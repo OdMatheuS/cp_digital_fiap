@@ -7,7 +7,7 @@ import javax.persistence.EntityNotFoundException;
 
 import org.springframework.stereotype.Service;
 
-import br.com.fiap.entity.Taskes;
+import br.com.fiap.entity.Tasks;
 import br.com.fiap.repository.TaskRepository;
 
 @Service
@@ -18,15 +18,15 @@ public class TaskService {
 		this.taskesRepository = taskesRepository;
 	}
 
-	public List<Taskes> getAllTaskes() {
+	public List<Tasks> getAllTaskes() {
 		return taskesRepository.findAll();
 	}
 
-	public Optional<Taskes> getTaskesById(Long id) {
+	public Optional<Tasks> getTaskesById(Long id) {
 		return taskesRepository.findById(id);
 	}
 
-	public Taskes createTaskes(Taskes taskes) {
+	public Tasks createTaskes(Tasks taskes) {
 		return taskesRepository.save(taskes);
 	}
 
@@ -34,11 +34,11 @@ public class TaskService {
 		taskesRepository.deleteById(id);
 	}
 
-	public Taskes updateTaskes(Long id, Taskes updatedTaskes) {
-		Optional<Taskes> existingTaskesOptional = taskesRepository.findById(id);
+	public Tasks updateTaskes(Long id, Tasks updatedTaskes) {
+		Optional<Tasks> existingTaskesOptional = taskesRepository.findById(id);
 
 		if (existingTaskesOptional.isPresent()) {
-			Taskes existingTaskes = existingTaskesOptional.get();
+			Tasks existingTaskes = existingTaskesOptional.get();
 			existingTaskes.setTitle(updatedTaskes.getTitle());
 			existingTaskes.setDescription(updatedTaskes.getDescription());
 			existingTaskes.setStatus(updatedTaskes.getStatus());

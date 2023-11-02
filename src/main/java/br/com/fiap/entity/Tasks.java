@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Taskes {
+public class Tasks {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -15,7 +15,7 @@ public class Taskes {
 	private String status;
 	private String dueDate;
 
-	public Taskes(Long id, String title, String description, String status, String dueDate) {
+	public Tasks(Long id, String title, String description, String status, String dueDate) {
 		this.id = id;
 		this.title = title;
 		this.description = description;
@@ -23,7 +23,7 @@ public class Taskes {
 		this.dueDate = dueDate;
 	}
 
-	public Taskes() {
+	public Tasks() {
 	}
 
 	public Long getId() {
