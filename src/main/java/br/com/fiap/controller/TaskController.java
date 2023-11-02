@@ -10,34 +10,36 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.fiap.entity.Tasks;
+import br.com.fiap.entity.Taskes;
 import br.com.fiap.service.TaskService;
 
 @RestController
+@RequestMapping("/api/task")
 public class TaskController {
 
 	@Autowired
 	private TaskService taskService;
 
 	@GetMapping("/listar")
-	public List<Tasks> getAllTasks() {
+	public List<Taskes> getAllTasks() {
 		return taskService.getAllTaskes();
 	}
 
 	@GetMapping("/{id}")
-	public Optional<Tasks> getTask(@PathVariable Long id) {
+	public Optional<Taskes> getTask(@PathVariable Long id) {
 		return taskService.getTaskesById(id);
 	}
 
 	@PostMapping("/cadastrar")
-	public Tasks createTask(@RequestBody Tasks task) {
+	public Taskes createTask(@RequestBody Taskes task) {
 		return taskService.createTaskes(task);
 	}
 
 	@PutMapping("/{id}")
-	public Tasks updateTask(@PathVariable Long id, @RequestBody Tasks task) {
+	public Taskes updateTask(@PathVariable Long id, @RequestBody Taskes task) {
 		task.setId(id);
 		return taskService.updateTaskes(id, task);
 	}
